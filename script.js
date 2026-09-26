@@ -167,7 +167,7 @@ async function startAI() {
       "text-generation",
       "onnx-community/Qwen3-0.6B-ONNX",
       {
-        dtype: "q4f16"
+        dtype: "q4"
       }
     );
 
