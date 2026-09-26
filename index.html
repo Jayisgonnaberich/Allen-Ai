@@ -2,17 +2,361 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Allen AI - Your AI assistant for school, business, questions, and more."
+    >
+
     <title>Allen AI</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Welcome to Allen AI</h1>
-    <p>Your AI website is working!</p>
+    <!-- =========================
+         APP CONTAINER
+    ========================== -->
+    <div class="app">
 
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-top">
+
+                <div class="logo">
+                    <div class="logo-icon">A</div>
+                    <div>
+                        <h2>Allen AI</h2>
+                        <span>Your AI assistant</span>
+                    </div>
+                </div>
+
+                <button
+                    class="new-chat-btn"
+                    id="newChatBtn"
+                    type="button"
+                >
+                    <span>＋</span>
+                    New Chat
+                </button>
+
+            </div>
+
+
+            <div class="sidebar-section">
+
+                <p class="sidebar-title">QUICK TOOLS</p>
+
+                <button class="tool-btn" type="button" data-prompt="Help me with my school homework.">
+                    📚
+                    <span>Homework Help</span>
+                </button>
+
+                <button class="tool-btn" type="button" data-prompt="Help me understand this math problem step by step.">
+                    🧮
+                    <span>Math</span>
+                </button>
+
+                <button class="tool-btn" type="button" data-prompt="Help me understand this science topic.">
+                    🔬
+                    <span>Science</span>
+                </button>
+
+                <button class="tool-btn" type="button" data-prompt="Give me ideas and advice for starting a business.">
+                    💼
+                    <span>Business</span>
+                </button>
+
+                <button class="tool-btn" type="button" data-prompt="Help me write or improve this text.">
+                    ✍️
+                    <span>Writing</span>
+                </button>
+
+            </div>
+
+
+            <div class="sidebar-bottom">
+
+                <button
+                    class="sidebar-action"
+                    id="themeBtn"
+                    type="button"
+                >
+                    🌙
+                    <span>Change Theme</span>
+                </button>
+
+                <div class="ai-status">
+                    <span class="status-dot"></span>
+                    <span>Allen AI Online</span>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+        <main class="main">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                    type="button"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+                <div class="topbar-title">
+                    <strong>Allen AI</strong>
+                    <span>AI Assistant</span>
+                </div>
+
+                <button
+                    class="topbar-new-chat"
+                    id="topNewChatBtn"
+                    type="button"
+                >
+                    ＋ New Chat
+                </button>
+
+            </header>
+
+
+            <!-- =========================
+                 CHAT AREA
+            ========================== -->
+            <section
+                class="chat-area"
+                id="chatArea"
+            >
+
+                <!-- WELCOME SCREEN -->
+                <div
+                    class="welcome"
+                    id="welcomeScreen"
+                >
+
+                    <div class="welcome-logo">
+                        A
+                    </div>
+
+                    <h1>Welcome to Allen AI</h1>
+
+                    <p>
+                        Ask questions, learn new things, solve problems,
+                        explore ideas, and get help with school or business.
+                    </p>
+
+
+                    <!-- SUGGESTIONS -->
+                    <div class="suggestions">
+
+                        <button
+                            class="suggestion"
+                            type="button"
+                            data-prompt="Explain photosynthesis in a simple way."
+                        >
+                            <span class="suggestion-icon">🔬</span>
+
+                            <span>
+                                <strong>Learn something</strong>
+                                <small>Explain a school topic</small>
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="suggestion"
+                            type="button"
+                            data-prompt="Help me solve this math problem step by step."
+                        >
+                            <span class="suggestion-icon">🧮</span>
+
+                            <span>
+                                <strong>Solve a problem</strong>
+                                <small>Get help with mathematics</small>
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="suggestion"
+                            type="button"
+                            data-prompt="Give me some ideas for a small AI business I could start."
+                        >
+                            <span class="suggestion-icon">💡</span>
+
+                            <span>
+                                <strong>Business ideas</strong>
+                                <small>Explore business opportunities</small>
+                            </span>
+                        </button>
+
+
+                        <button
+                            class="suggestion"
+                            type="button"
+                            data-prompt="Help me write a professional message."
+                        >
+                            <span class="suggestion-icon">✍️</span>
+
+                            <span>
+                                <strong>Write something</strong>
+                                <small>Get help with writing</small>
+                            </span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MESSAGES WILL APPEAR HERE -->
+                <div
+                    class="messages"
+                    id="messages"
+                ></div>
+
+
+                <!-- TYPING INDICATOR -->
+                <div
+                    class="typing-container"
+                    id="typingContainer"
+                    hidden
+                >
+
+                    <div class="message-avatar">
+                        A
+                    </div>
+
+                    <div class="typing-bubble">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 INPUT AREA
+            ========================== -->
+            <footer class="input-area">
+
+                <div class="input-wrapper">
+
+                    <!-- IMAGE BUTTON -->
+                    <button
+                        class="input-button"
+                        id="imageBtn"
+                        type="button"
+                        title="Upload or take a picture"
+                        aria-label="Upload or take a picture"
+                    >
+                        📷
+                    </button>
+
+
+                    <!-- HIDDEN IMAGE INPUT -->
+                    <input
+                        type="file"
+                        id="imageInput"
+                        accept="image/*"
+                        capture="environment"
+                        hidden
+                    >
+
+
+                    <!-- TEXT INPUT -->
+                    <textarea
+                        id="messageInput"
+                        placeholder="Ask Allen AI anything..."
+                        rows="1"
+                        maxlength="10000"
+                    ></textarea>
+
+
+                    <!-- SEND BUTTON -->
+                    <button
+                        class="send-button"
+                        id="sendBtn"
+                        type="button"
+                        aria-label="Send message"
+                        title="Send"
+                    >
+                        ➤
+                    </button>
+
+                </div>
+
+
+                <!-- IMAGE PREVIEW -->
+                <div
+                    class="image-preview"
+                    id="imagePreview"
+                    hidden
+                >
+
+                    <div class="preview-content">
+
+                        <img
+                            id="previewImage"
+                            src=""
+                            alt="Selected image"
+                        >
+
+                        <button
+                            id="removeImageBtn"
+                            type="button"
+                            aria-label="Remove image"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+                    <span id="imageName"></span>
+
+                </div>
+
+
+                <p class="disclaimer">
+                    Allen AI can make mistakes. Check important information.
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
     <script src="script.js"></script>
+
 </body>
 </html>
+
 
